@@ -66,3 +66,29 @@ Track is added to self.music_list
     assert music_tracker.music_list == ["Sonne", "Victory Lap 5"]
 
 ```
+```python
+"""
+Calling list_tracks
+Returns a list
+"""
+    music_tracker = MusicTracker()
+    music_tracker.add_tracks("Sonne")
+    music_tracker.add_tracks("Victory Lap 5")
+    assert music_tracker.list_tracks() == ["Sonne", "Victory Lap 5"]
+
+"""
+Given empty string when adding tracks
+Returns warning "Track cannot be empty
+"""
+    music_tracker = MusicTracker()
+    assert music_tracker.add_tracks("") == "Please enter a track"
+
+"""
+Given wrong type as new track
+Raises TypeError
+"""
+    music_tracker = MusicTracker()
+    with pytest.raises(TypeError) as e:
+        music_tracker.add_tracks(1334)
+    error_message = str(e.value)
+    assert error_message == "Please enter valid string"

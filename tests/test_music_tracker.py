@@ -32,3 +32,24 @@ def test_returns_list():
     music_tracker.add_tracks("Sonne")
     music_tracker.add_tracks("Victory Lap 5")
     assert music_tracker.list_tracks() == ["Sonne", "Victory Lap 5"]
+
+"""
+Given empty string when adding tracks
+Returns warning "Track cannot be empty
+"""
+
+def test_empty_string_as_new_track():
+    music_tracker = MusicTracker()
+    assert music_tracker.add_tracks("") == "Please enter a track"
+
+"""
+Given wrong type as new track
+Raises TypeError
+"""
+
+def test_raise_type_error_with_wrong_type():
+    music_tracker = MusicTracker()
+    with pytest.raises(TypeError) as e:
+        music_tracker.add_tracks(1334)
+    error_message = str(e.value)
+    assert error_message == "Please enter valid string"
