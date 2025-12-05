@@ -19,3 +19,13 @@ def test_add_track_adds_to_music_list():
     assert music_tracker.music_list == ["Sonne"]
     music_tracker.add_tracks("Victory Lap 5")
     assert music_tracker.music_list == ["Sonne", "Victory Lap 5"]
+
+"""
+Calling list_tracks
+Returns a list
+"""
+def test_calling_list_tracks_returns_list():
+    music_tracker = MusicTracker()
+    music_tracker.add_tracks("Sonne")
+    music_tracker.add_tracks("Victory Lap 5")
+    assert music_tracker.list_tracks() == ["Sonne", "Victory Lap 5"]
