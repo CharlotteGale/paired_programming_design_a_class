@@ -1,4 +1,5 @@
 from lib.music_tracker import *
+import pytest
 
 """
 On initalising the class
@@ -37,3 +38,15 @@ Returns warning "Track cannot be empty
 def test_returns_warning_when_empty_string_passed():
     music_tracker = MusicTracker()
     assert music_tracker.add_tracks("") == "Please enter a track"
+
+
+"""
+Given wrong type as new track
+Raises TypeError
+"""
+def test_type_error_adding_track_raises_type_error():
+    music_tracker = MusicTracker()
+    with pytest.raises(TypeError) as e:
+        music_tracker.add_tracks(1334)
+    error_message = str(e.value)
+    assert error_message == "Please enter valid string"
