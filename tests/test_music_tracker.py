@@ -29,3 +29,11 @@ def test_calling_list_tracks_returns_list():
     music_tracker.add_tracks("Sonne")
     music_tracker.add_tracks("Victory Lap 5")
     assert music_tracker.list_tracks() == ["Sonne", "Victory Lap 5"]
+
+"""
+Given empty string when adding tracks
+Returns warning "Track cannot be empty
+"""
+def test_returns_warning_when_empty_string_passed():
+    music_tracker = MusicTracker()
+    assert music_tracker.add_tracks("") == "Please enter a track"
