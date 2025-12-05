@@ -46,4 +46,23 @@ class MusicTracker():
 ```
 
 ## Tests
+```python
+"""
+On initalising the class
+The empty list is created
+"""
+    music_tracker = MusicTracker()
+    assert music_tracker.music_list == []
+```
+```python
+"""
+Adding a track using add_tracks
+Track is added to self.music_list
+"""
+    music_tracker = MusicTracker()
+    music_tracker.add_tracks("Sonne")
+    assert music_tracker.music_list == ["Sonne"]
+    music_tracker.add_tracks("Victory Lap 5")
+    assert music_tracker.music_list == ["Sonne", "Victory Lap 5"]
 
+```
